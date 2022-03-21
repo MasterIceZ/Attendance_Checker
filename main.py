@@ -7,7 +7,7 @@ data = dict()
 all_names = []
 
 def read_data(fileName:str):
-    attend = pd.read_excel(fileName, sheet_name="Attendance")
+    attend = pd.read_excel("Check/" + fileName, sheet_name="Attendance")
     table_head = fileName.split(".xlsx")[0]
 
     names = list()
@@ -52,10 +52,20 @@ def main():
         name_idx[i] = all_names[i]
 
     # Solving Session
-    insert_data([
+    excel = [
         "20_3_Afternoon.xlsx",
-        "20_3_Evening.xlsx"
-    ])
+        "21_3_Afternoon.xlsx",
+        "21_3_Evening.xlsx"
+    ]
+    insert_data(excel)
+
+    # Create Total Count
+    for i in range(len(all_names)):
+        s = 0
+        for x in excel:
+            current_id = x.split(".xlsx")[0]
+            s += int(data[i][current_id])
+        data[i]["Total"] = s * 100 / len(excel)
 
     # Write Output file
     # Don't Touch
