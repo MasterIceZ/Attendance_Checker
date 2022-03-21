@@ -30,6 +30,10 @@ def read_data(fileName:str):
         data[i][table_head] = 0
     return 
 
+def insert_data(ls: list):
+    for i in ls:
+        read_data(i)
+    return 
 
 def main():
     
@@ -48,8 +52,10 @@ def main():
         name_idx[i] = all_names[i]
 
     # Solving Session
-    read_data("20_3_Afternoon.xlsx")
-    read_data("20_3_Evening.xlsx")
+    insert_data([
+        "20_3_Afternoon.xlsx",
+        "20_3_Evening.xlsx"
+    ])
 
     # Write Output file
     # Don't Touch
