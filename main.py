@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 # Global Variables
 name_map = dict()
 name_idx = dict()
@@ -9,6 +8,7 @@ all_names = []
 
 def read_data(fileName:str):
     attend = pd.read_excel(fileName, sheet_name="Attendance")
+    table_head = fileName.split(".xlsx")[0]
 
     names = list()
 
@@ -21,13 +21,13 @@ def read_data(fileName:str):
     # Fill Found
     for i in range(len(name_idx)):
         if name_idx[i] in names:
-            data[i][fileName] = 1
+            data[i][table_head] = 1
     # Fill Not Found
     for i in range(len(all_names)):
         current_name = all_names[i]
         if current_name in names:
             continue
-        data[i][fileName] = 0
+        data[i][table_head] = 0
     return 
 
 
