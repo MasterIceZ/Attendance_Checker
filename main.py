@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 # Global Variables
 name_map = dict()
@@ -52,11 +53,7 @@ def main():
         name_idx[i] = all_names[i]
 
     # Solving Session
-    excel = [
-        "20_3_Afternoon.xlsx",
-        "21_3_Afternoon.xlsx",
-        "21_3_Evening.xlsx"
-    ]
+    excel = os.listdir("./Check")
     insert_data(excel)
 
     # Create Total Count
