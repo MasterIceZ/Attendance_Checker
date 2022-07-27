@@ -66,7 +66,7 @@ def main():
 
     # Write Output file
     # Don't Touch
-    writer = pd.ExcelWriter("Output.xlsx", engine="xlsxwriter")
+    writer = pd.ExcelWriter("checked.xlsx", engine="xlsxwriter")
     df = pd.DataFrame(data)
     df = df.transpose()
     df.to_excel(writer, sheet_name="Fuck Off")
